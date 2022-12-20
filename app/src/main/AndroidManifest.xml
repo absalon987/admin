@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AdminAppSender">
         <activity
+            android:name=".ViewMessage"
+            android:exported="false" />
+        <activity
             android:name=".archive"
             android:exported="false" />
         <activity
             android:name=".pending"
             android:exported="false" />
         <activity
-            android:name=".delivered"
+            android:name=".newTickets"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

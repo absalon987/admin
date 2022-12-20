@@ -46,4 +46,8 @@ public class Messages {
     public String getStatus() {
         return this.status;
     }
+
+    public String getCategory() { return this.category; }
+
+    public String getKey() { return this.key; }
 }

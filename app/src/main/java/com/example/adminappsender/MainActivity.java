@@ -16,25 +16,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-        Delivered = (Button)findViewById(R.id.btndelivered);
+        Delivered = (Button)findViewById(R.id.btnNew);
         Delivered.setOnClickListener(this);
 
-        Pending = (Button)findViewById(R.id.btnpending);
+        Pending = (Button)findViewById(R.id.btnPending);
         Pending.setOnClickListener(this);
 
-        Archive = (Button)findViewById(R.id.btnarchive);
+        Archive = (Button)findViewById(R.id.btnArchive);
         Archive.setOnClickListener(this);
 
     }
     public void onClick(View v) {
         switch (v.getId()) {
-            case (R.id.btndelivered):
-                startActivity(new Intent(MainActivity.this, delivered.class));
+            case (R.id.btnNew):
+                startActivity(new Intent(MainActivity.this, newTickets.class));
                 break;
-            case (R.id.btnpending):
+            case (R.id.btnPending):
                 startActivity(new Intent(MainActivity.this, pending.class));
                 break;
-            case (R.id.btnarchive):
+            case (R.id.btnArchive):
                 startActivity(new Intent(MainActivity.this, archive.class));
                 break;
         }
