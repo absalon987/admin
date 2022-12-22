@@ -7,4 +7,16 @@
     android:background="@drawable/bg_color3"
     tools:context=".ViewMessage">
 
+    <TextView
+        android:id="@+id/ticketNumberID"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="31dp"
+        android:text="TextView"
+        android:textSize="50dp"
+        android:background="#ffffff"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

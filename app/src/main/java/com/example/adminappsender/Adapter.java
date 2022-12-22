@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
-    Context context;
-    ArrayList<Messages> msgList;
+    private Context context;
+    private ArrayList<Messages> msgList;
 
 
     public Adapter(Context context, ArrayList<Messages> msgList) {
@@ -38,10 +38,24 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        final Messages msgs = msgList.get(position);
-        holder.subject.setText(msgs.getSubject());
-        holder.key.setText(msgs.getKey());
+        Messages messages = msgList.get(position);
+        holder.subject.setText(messages.getSubject());
+        holder.key.setText(messages.getKey());
 
+
+
+        holder.subject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String key = holder.key.getText().toString();
+
+                Intent intent = new Intent(context, ViewMessage.class);
+                context.startActivity(intent);
+                intent.putExtra("keyID", key);
+                System.out.println(key);
+            }
+        });
 
     }
 
@@ -51,34 +65,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     }
 
 
-    public static class MyViewHolder extends ViewHolder implements View.OnClickListener {
+    public static class MyViewHolder extends ViewHolder {
 
-        TextView senderNumber;
+
         Button subject;
         TextView key;
-        String keyID;
-        Activity activity;
-        Context context;
-
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             subject = itemView.findViewById(R.id.subject);
             key = itemView.findViewById(R.id.ticketNumber);
-//            keyID = key.getAutofillValue().toString();
 
-
-            subject.setOnClickListener(this);
-
-
-        }
-
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(subject.getContext(), ViewMessage.class);
-            subject.getContext().startActivity(intent);
-//            intent.putExtra("keyValue", keyID);
 
 
         }

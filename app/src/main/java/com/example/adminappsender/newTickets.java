@@ -52,7 +52,9 @@ public class newTickets extends AppCompatActivity {
                     Messages msgs = dataSnapshot.getValue(Messages.class);
                     String cat = reference1.toString();
 //                    if (cat.toString() == "Connection") {
+
                     listMsgs.add(msgs);
+
 //                    }
                 }
                 myAdapter.notifyDataSetChanged();
