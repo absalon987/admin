@@ -41,6 +41,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         Messages messages = msgList.get(position);
         holder.subject.setText(messages.getSubject());
         holder.key.setText(messages.getKey());
+        holder.message.setText(messages.getMessage());
 
 
 
@@ -49,10 +50,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             public void onClick(View view) {
 
                 String key = holder.key.getText().toString();
+                String subject = holder.subject.getText().toString();
+                String message = holder.message.getText().toString();
 
                 Intent intent = new Intent(context, ViewMessage.class);
-                context.startActivity(intent);
                 intent.putExtra("keyID", key);
+                intent.putExtra("subjectID",subject);
+                intent.putExtra("messageID",message);
+                context.startActivity(intent);
                 System.out.println(key);
             }
         });
@@ -69,13 +74,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
 
         Button subject;
-        TextView key;
-
+        TextView key ;
+        TextView message;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             subject = itemView.findViewById(R.id.subject);
             key = itemView.findViewById(R.id.ticketNumber);
+            message = itemView.findViewById(R.id.mainMessage);
 
 
 
