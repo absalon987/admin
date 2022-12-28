@@ -51,8 +51,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                 String key = holder.key.getText().toString();
 
                 Intent intent = new Intent(context, ViewMessage.class);
-                context.startActivity(intent);
                 intent.putExtra("keyID", key);
+                context.startActivity(intent);
+
                 System.out.println(key);
             }
         });
